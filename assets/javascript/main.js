@@ -3,15 +3,20 @@ const allrollsButton = document.querySelector("#all-rolls");
 const total = document.querySelector("#total");
 const resultInput = document.querySelector("#result-input");
 const rollsList = document.querySelector("#rolls-list");
-let count = 0;
-let rollnum = resultInput.value;
 
 let diceroll = []
 
+
+
 rollButton.addEventListener('click', function() {
+    diceroll = []
+    let rollnum = resultInput.value;
+    let sum = 0
+    let count = 0
+
     
-    while(count < resultInput.value) {
-        let dieroll = Math.floor(Math.random() * resultInput.value) + 1 
+    while(count < rollnum) {
+        let dieroll = Math.floor(Math.random() * rollnum) + 1 
         console.log(dieroll)
         diceroll.push(dieroll)
         
@@ -22,28 +27,19 @@ rollButton.addEventListener('click', function() {
         count++
     }
     
-    const sum = diceroll.reduce((total, amount) => total + amount);
+    sum = diceroll.reduce((total, amount) => total + amount);
         console.log(sum)
 
-        
-        
-        
-       
+    total.innerText = sum    
+})
 
+allrollsButton.addEventListener('click', function() {
+    rollsList.innerHTML = ""
     
-    
-    
-    
-    // count = parseInt(total.innerText) + 1;
-    // total.innerText = count;
-    
-    // let rollnum = Math.random(1, 7);
-
-    // if (rollnum != 1) {
-
-    // }
-
-
+        for(let i = 0; i < diceroll.length; i++) {
+            console.log(diceroll[i])
+            rollsList.innerHTML += "<li>" + diceroll[i] + "</li>"
+        }
 
 })
 
