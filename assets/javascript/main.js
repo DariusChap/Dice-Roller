@@ -3,8 +3,10 @@ const allrollsButton = document.querySelector("#all-rolls");
 const total = document.querySelector("#total");
 const resultInput = document.querySelector("#result-input");
 const rollsList = document.querySelector("#rolls-list");
+const resetButton = document.querySelector("#reset-button");
+let resetResult = "";
+let count1 = "";
 
-let diceroll = []
 
 
 
@@ -33,7 +35,7 @@ rollButton.addEventListener('click', function() {
     total.innerText = sum    
 })
 
-allrollsButton.addEventListener('click', function() {
+allrollsButton.addEventListener("click", function() {
     rollsList.innerHTML = ""
     
         for(let i = 0; i < diceroll.length; i++) {
@@ -43,5 +45,16 @@ allrollsButton.addEventListener('click', function() {
 
 })
 
-
+resetButton.addEventListener("click", function() {
+   resetResult = resultInput.innerHTML;
+   resultInput.innerHTML = resetResult;
+    
+    total.innerHTML = "";
+    rollsList.innerHTML = "";
+    
+    
+    
+    
+    
+})
 
